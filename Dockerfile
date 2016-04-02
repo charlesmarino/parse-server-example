@@ -1,7 +1,6 @@
 FROM node:latest
 
 RUN mkdir parse
-RUN mkdir tmp
 
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install

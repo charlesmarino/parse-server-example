@@ -36,7 +36,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('Make sure to star the parse-server repo on GitHub!');
+  res.status(200).send('Welcome to the Physio App');
 });
 
 // There will be a test page available on the /test path of your server url
@@ -53,4 +53,3 @@ httpServer.listen(port, function() {
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
-

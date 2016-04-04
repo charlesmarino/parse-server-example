@@ -1,0 +1,14 @@
+web:
+  build: .
+  volumes:
+    - .:/data/db
+  ports:
+    - "1337:1337"
+  links:
+    - mongodb
+  environment:
+    APP_ID: setYourAppId
+    MASTER_KEY: setYourMasterKey
+    DATABASE_URI: mongodb://localhost:27017/dev
+mongodb:
+  image: mongo:3.2.1

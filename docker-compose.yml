@@ -9,6 +9,7 @@ parse-server:
   environment:
     APP_ID: setYourAppId
     MASTER_KEY: setYourMasterKey
+    CLIENT_KEY: setYourClientKey
     DATABASE_URI: mongodb://localhost:27017/dev
 mongodb:
   image: mongo:3.2.1
@@ -23,12 +24,10 @@ parse-dashboard:
   ports:
     - "4040:4040"
   environment:
-    PARSE_DASHBOARD_SERVER_URL: https://api.parse.com/1
-    PARSE_DASHBOARD_MASTER_KEY: BqhfEsnYq6ODxyHnO4iGqga8owlO4gUn356wiej9
-    PARSE_DASHBOARD_APP_ID: G7bZDYGQRiUvcscDjD1mtKLPqRAxcv4kkNJTWqbk
-    PARSE_DASHBOARD_APP_NAME: PhysioApp on Parse.com
-    PARSE_JS_KEY: mIvmhgPW5UUoGMuIqNi0WZuwTGwKZxBFUhEQQ37J
-    PARSE_REST_KEY: 2tOJpoL4ELtDbVric3DgDdZGYFGUU9Dv22dVcyNa
+    PARSE_DASHBOARD_SERVER_URL: http://localhost:1337/parse
+    PARSE_DASHBOARD_MASTER_KEY: setYourMasterKey
+    PARSE_DASHBOARD_APP_ID: setYourAppId
+    PARSE_DASHBOARD_APP_NAME: setAppName
     PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: true
     PARSE_DASHBOARD_USER_ID: admin
     PARSE_DASHBOARD_USER_PASSWORD: password

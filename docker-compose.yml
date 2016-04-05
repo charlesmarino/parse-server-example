@@ -1,4 +1,4 @@
-web:
+parse-server:
   build: .
   volumes:
     - .:/data/db
@@ -12,3 +12,18 @@ web:
     DATABASE_URI: mongodb://localhost:27017/dev
 mongodb:
   image: mongo:3.2.1
+  ports:
+    - "27017:27017"
+  volumes:
+    - /data/db
+parse-dashboard:
+  build: parse-dashboard/
+  links:
+    - parse-server
+  ports:
+    - "4040:4040"
+  environment:
+    PARSE_DASHBOARD_SERVER_URL: http://localhost:1337/parse
+    PARSE_DASHBOARD_MASTER_KEY: setYourMasterKey
+    PARSE_DASHBOARD_APP_ID: setYourAppId
+    PARSE_DASHBOARD_APP_NAME: setYourAppName

@@ -6,9 +6,13 @@ var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
+var serverURL = process.env.SERVER_URL || 'http://localhost:1337/parse';
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
+}else{
+    console.log(`DATABASE_URI specified, ${databaseUri}`);
+    console.log(`SERVER_URL specified, ${serverURL}`);
 }
 
 var api = new ParseServer({

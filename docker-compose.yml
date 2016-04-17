@@ -18,15 +18,16 @@ services:
       - "27017"
     volumes:
       - /data/db
+    command: "--setParameter failIndexKeyTooLong=false"
   parse-dashboard:
     build: parse-dashboard/
     ports:
       - "4040:4040"
     environment:
-      PARSE_DASHBOARD_SERVER_URL: https://toysinboxes.com/parse
+      PARSE_DASHBOARD_SERVER_URL: http://192.168.99.100:4040/parse
       PARSE_DASHBOARD_MASTER_KEY: setYourMasterKey
       PARSE_DASHBOARD_APP_ID: setYourAppId
       PARSE_DASHBOARD_APP_NAME: setAppName
-    #   PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: Y
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: Y
       PARSE_DASHBOARD_USER_ID: admin
       PARSE_DASHBOARD_USER_PASSWORD: password

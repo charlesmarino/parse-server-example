@@ -11,7 +11,6 @@ if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }else{
     console.log(`DATABASE_URI specified, ${databaseUri}`);
-    console.log(`SERVER_URL specified, ${serverURL}`);
 }
 
 var api = new ParseServer({

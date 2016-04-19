@@ -9,7 +9,7 @@ services:
       APP_ID: setYourAppId
       MASTER_KEY: setYourMasterKey
       CLIENT_KEY: setYourClientKey
-      SERVER_URL: http://localhost:1337/parse
+      SERVER_URL: http://localhost:1337
       DATABASE_URI: mongodb://mongo:27017/dev
   mongo:
     image: mongo:3.2.1
@@ -17,15 +17,14 @@ services:
       - "27017"
     volumes:
       - /data/db
-    command: "--setParameter failIndexKeyTooLong=false"
   parse-dashboard:
     build: parse-dashboard/
     ports:
       - "4040:4040"
     environment:
       PARSE_DASHBOARD_SERVER_URL: http://192.168.99.100:1337/parse
-      PARSE_DASHBOARD_APP_ID: setYourAppId
       PARSE_DASHBOARD_MASTER_KEY: setYourMasterKey
+      PARSE_DASHBOARD_APP_ID: setYourAppId
       PARSE_DASHBOARD_APP_NAME: setAppName
       PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: Y
       PARSE_DASHBOARD_USER_ID: admin

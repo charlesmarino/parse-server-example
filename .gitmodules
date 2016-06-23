@@ -1,3 +1,3 @@
 [submodule "parse-dashboard"]
 	path = parse-dashboard
-	url = https://github.com/dmathewwws/parse-dashboard.git
+	url = https://github.com/ParsePlatform/parse-dashboard
